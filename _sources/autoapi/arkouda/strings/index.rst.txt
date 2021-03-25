@@ -39,19 +39,19 @@ Classes
 
       The number of strings in the array
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: nbytes
 
       The total number of bytes in all strings
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: ndim
 
       The rank of the array (currently only rank 1 arrays supported)
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: shape
 
@@ -104,7 +104,7 @@ Classes
       Return repr(self).
 
 
-   .. method:: _binop(self, other: Union[(Strings, np.str_, str)], op: str) -> arkouda.pdarrayclass.pdarray
+   .. method:: _binop(self, other: Union[(Strings, str_scalars)], op: str) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested binop on this Strings instance and the
           parameter Strings object and returns the results within
@@ -112,7 +112,7 @@ Classes
 
           Parameters
           ----------
-          other : Strings, np.str_, or str
+          other : Strings, str_scalars
               the other object is a Strings object
           op : str
               name of the binary operation to be performed
@@ -156,17 +156,17 @@ Classes
       :raises RuntimeError: Raised if there is a server-side error thrown
 
 
-   .. method:: contains(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: contains(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element contains the given substring.
 
       :param substr: The substring in the form of string or byte array to search for
-      :type substr: Union[str, bytes, np.str_]
+      :type substr: str_scalars
 
       :returns: True for elements that contain substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not bytes or str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.startswith`, :obj:`Strings.endswith`
@@ -180,17 +180,17 @@ Classes
       array([True, True, True, True, True])
 
 
-   .. method:: startswith(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: startswith(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element starts with the given substring.
 
       :param substr: The prefix to search for
-      :type substr: Union[str,bytes,np.str_]
+      :type substr: Union[bytes,str_scalars]
 
       :returns: True for elements that start with substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not a bytes ior str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.contains`, :obj:`Strings.endswith`
@@ -204,17 +204,17 @@ Classes
       array([True, True, True, True, True])
 
 
-   .. method:: endswith(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: endswith(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element ends with the given substring.
 
       :param substr: The suffix to search for
-      :type substr: Union[str,bytes,np.str_]
+      :type substr: Union[bytes,str_scalars]
 
       :returns: True for elements that end with substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not bytes or str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.contains`, :obj:`Strings.startswith`
@@ -254,14 +254,14 @@ Classes
       array([0, 2, 5])
 
 
-   .. method:: peel(self, delimiter: Union[(str, bytes, np.str_)], times: Union[(int, np.int64)] = 1, includeDelimiter: bool = False, keepPartial: bool = False, fromRight: bool = False) -> Tuple
+   .. method:: peel(self, delimiter: Union[(bytes, str_scalars)], times: arkouda.dtypes.int_scalars = 1, includeDelimiter: bool = False, keepPartial: bool = False, fromRight: bool = False) -> Tuple
 
       Peel off one or more delimited fields from each string (similar
       to string.partition), returning two new arrays of strings.
       *Warning*: This function is experimental and not guaranteed to work.
 
       :param delimiter: The separator where the split will occur
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
       :param times: The number of times the delimiter is sought, i.e. skip over
                     the first (times-1) delimiters
       :type times: Union[int,np.int64]
@@ -286,7 +286,7 @@ Classes
                     is true)
       :rtype: Tuple[Strings,Strings]
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_, if
+      :raises TypeError: Raised if the delimiter parameter is not byte or str_scalars, if
           times is not int64, or if includeDelimiter, keepPartial, or
           fromRight is not bool
       :raises ValueError: Raised if times is < 1
@@ -307,14 +307,14 @@ Classes
       (array(['a.b', 'c.d', 'e.f']), array(['', '', 'g']))
 
 
-   .. method:: rpeel(self, delimiter: Union[(str, bytes, np.str_)], times: Union[(int, np.int64)] = 1, includeDelimiter: bool = False, keepPartial: bool = False)
+   .. method:: rpeel(self, delimiter: Union[(bytes, str_scalars)], times: arkouda.dtypes.int_scalars = 1, includeDelimiter: bool = False, keepPartial: bool = False)
 
       Peel off one or more delimited fields from the end of each string
       (similar to string.rpartition), returning two new arrays of strings.
       *Warning*: This function is experimental and not guaranteed to work.
 
       :param delimiter: The separator where the split will occur
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
       :param times: The number of times the delimiter is sought, i.e. skip over
                     the last (times-1) delimiters
       :type times: Union[int,np.int64]
@@ -330,7 +330,7 @@ Classes
       :returns: * **left** (*Strings*) -- The remainder of the string after peeling
                 * **right** (*Strings*) -- The field(s) that were peeled from the right of each string
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_ or
+      :raises TypeError: Raised if the delimiter parameter is not bytes or str_scalars or
           if times is not int64
       :raises ValueError: Raised if times is < 1
       :raises RuntimeError: Raised if there is a server-side error thrown
@@ -347,7 +347,7 @@ Classes
       (array(['a', 'c', 'e']), array(['b', 'd', 'f.g']))
 
 
-   .. method:: stick(self, other: arkouda.strings.Strings, delimiter: Union[(str, bytes, np.str_)] = '', toLeft: bool = False) -> arkouda.strings.Strings
+   .. method:: stick(self, other: arkouda.strings.Strings, delimiter: Union[(bytes, str_scalars)] = '', toLeft: bool = False) -> arkouda.strings.Strings
 
       Join the strings from another array onto one end of the strings
       of this array, optionally inserting a delimiter.
@@ -364,7 +364,7 @@ Classes
       :returns: The array of joined strings
       :rtype: Strings
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_
+      :raises TypeError: Raised if the delimiter parameter is not bytes or str_scalars
           or if the other parameter is not a Strings instance
       :raises ValueError: Raised if times is < 1
       :raises RuntimeError: Raised if there is a server-side error thrown
@@ -382,7 +382,7 @@ Classes
    .. method:: __add__(self, other: arkouda.strings.Strings) -> arkouda.strings.Strings
 
 
-   .. method:: lstick(self, other: arkouda.strings.Strings, delimiter: Union[(str, bytes, np.str_)] = '') -> arkouda.strings.Strings
+   .. method:: lstick(self, other: arkouda.strings.Strings, delimiter: Union[(bytes, str_scalars)] = '') -> arkouda.strings.Strings
 
       Join the strings from another array onto the left of the strings
       of this array, optionally inserting a delimiter.
@@ -391,7 +391,7 @@ Classes
       :param other: The strings to join onto self's strings
       :type other: Strings
       :param delimiter: String inserted between self and other
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
 
       :returns: The array of joined strings, as other + self
       :rtype: Strings

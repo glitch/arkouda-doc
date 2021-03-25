@@ -318,13 +318,43 @@ Functions
 
    
 
-.. data:: akstr
+.. data:: bool_scalars
+   
+
+   
+
+.. data:: float_scalars
+   
+
+   
+
+.. data:: int_scalars
+   
+
+   
+
+.. data:: numeric_scalars
+   
+
+   
+
+.. data:: numpy_scalars
+   
+
+   
+
+.. data:: str_scalars
+   
+
+   
+
+.. data:: all_scalars
    
 
    The DType enum defines the supported Arkouda data types in string form.
 
 
-.. class:: pdarray(name: str, mydtype: numpy.dtype, size: Union[(int, np.int64)], ndim: Union[(int, np.int64)], shape: Sequence[int], itemsize: Union[(int, np.int64)])
+.. class:: pdarray(name: str, mydtype: numpy.dtype, size: arkouda.dtypes.int_scalars, ndim: arkouda.dtypes.int_scalars, shape: Sequence[int], itemsize: arkouda.dtypes.int_scalars)
 
 
    The basic arkouda array class. This class contains only the
@@ -350,13 +380,13 @@ Functions
 
       The number of elements in the array
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: ndim
 
       The rank of the array (currently only rank 1 arrays supported)
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: shape
 
@@ -368,7 +398,7 @@ Functions
 
       The size in bytes of each element
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: BinOps
       
@@ -614,12 +644,12 @@ Functions
    .. method:: __setitem__(self, key, value)
 
 
-   .. method:: fill(self, value: Union[(int, np.int64, float, np.float64)]) -> None
+   .. method:: fill(self, value: arkouda.dtypes.numeric_scalars) -> None
 
       Fill the array (in place) with a constant value.
 
       :param value:
-      :type value: Union[int,np.int64,float,np.float64]
+      :type value: numeric_scalars
 
       :raises TypeError: Raised if value is not an int, int64, float, or float64
 
@@ -647,7 +677,7 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: sum(self) -> Union[(np.float64, np.int64)]
+   .. method:: sum(self) -> arkouda.dtypes.numpy_scalars
 
       Return the sum of all elements in the array.
 
@@ -658,12 +688,12 @@ Functions
       always a np.float64 or np.int64.
 
 
-   .. method:: min(self) -> Union[(np.float64, np.int64)]
+   .. method:: min(self) -> arkouda.dtypes.numpy_scalars
 
       Return the minimum value of the array.
 
 
-   .. method:: max(self) -> Union[(np.float64, np.int64)]
+   .. method:: max(self) -> arkouda.dtypes.numpy_scalars
 
       Return the maximum value of the array.
 
@@ -683,12 +713,12 @@ Functions
       Return the mean of the array.
 
 
-   .. method:: var(self, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+   .. method:: var(self, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
       Compute the variance. See ``arkouda.var`` for details.
 
       :param ddof: "Delta Degrees of Freedom" used in calculating var
-      :type ddof: Union[int,np.int64]
+      :type ddof: int_scalars
 
       :returns: The scalar variance of the array
       :rtype: np.float64
@@ -698,12 +728,12 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: std(self, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+   .. method:: std(self, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
       Compute the standard deviation. See ``arkouda.std`` for details.
 
       :param ddof: "Delta Degrees of Freedom" used in calculating std
-      :type ddof: Union[int,np.int64]
+      :type ddof: int_scalars
 
       :returns: The scalar standard deviation of the array
       :rtype: np.float64
@@ -712,12 +742,12 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: mink(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: mink(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -725,12 +755,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: maxk(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: maxk(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -738,12 +768,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: argmink(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: argmink(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: Indices corresponding to the maximum `k` values from pda
       :rtype: pdarray, int
@@ -751,12 +781,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: argmaxk(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: argmaxk(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Finds the indices corresponding to the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: Indices corresponding to the  maximum `k` values, sorted
       :rtype: pdarray, int
@@ -1072,13 +1102,13 @@ Functions
    :type pda: pdarray
 
    :returns: The product calculated from the pda
-   :rtype: Union[np.float64,np.int64]
+   :rtype: numpy_scalars
 
    :raises TypeError: Raised if pda is not a pdarray instance
    :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-.. function:: min(pda: arkouda.pdarrayclass.pdarray) -> Union[(np.float64, np.int64)]
+.. function:: min(pda: arkouda.pdarrayclass.pdarray) -> arkouda.dtypes.numpy_scalars
 
    Return the minimum value of the array.
 
@@ -1086,13 +1116,13 @@ Functions
    :type pda: pdarray
 
    :returns: The min calculated from the pda
-   :rtype: Union[np.float64,np.int64]
+   :rtype: numpy_scalars
 
    :raises TypeError: Raised if pda is not a pdarray instance
    :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-.. function:: max(pda: arkouda.pdarrayclass.pdarray) -> Union[(np.float64, np.int64)]
+.. function:: max(pda: arkouda.pdarrayclass.pdarray) -> arkouda.dtypes.numpy_scalars
 
    Return the maximum value of the array.
 
@@ -1100,7 +1130,7 @@ Functions
    :type pda: pdarray
 
    :returns: The max calculated from the pda
-   :rtype: Union[np.float64,np.int64]
+   :rtype: numpy_scalars
 
    :raises TypeError: Raised if pda is not a pdarray instance
    :raises RuntimeError: Raised if there's a server-side error thrown
@@ -1148,14 +1178,14 @@ Functions
    :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-.. function:: var(pda: arkouda.pdarrayclass.pdarray, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+.. function:: var(pda: arkouda.pdarrayclass.pdarray, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
    Return the variance of values in the array.
 
    :param pda: Values for which to calculate the variance
    :type pda: pdarray
    :param ddof: "Delta Degrees of Freedom" used in calculating var
-   :type ddof: Union[int,np.int64]
+   :type ddof: int_scalars
 
    :returns: The scalar variance of the array
    :rtype: np.float64
@@ -1179,7 +1209,7 @@ Functions
    normally distributed variables.
 
 
-.. function:: std(pda: arkouda.pdarrayclass.pdarray, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+.. function:: std(pda: arkouda.pdarrayclass.pdarray, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
    Return the standard deviation of values in the array. The standard
    deviation is implemented as the square root of the variance.
@@ -1187,7 +1217,7 @@ Functions
    :param pda: values for which to calculate the standard deviation
    :type pda: pdarray
    :param ddof: "Delta Degrees of Freedom" used in calculating std
-   :type ddof: Union[int,np.int64]
+   :type ddof: int_scalars
 
    :returns: The scalar standard deviation of the array
    :rtype: np.float64
@@ -1214,7 +1244,7 @@ Functions
    unbiased estimate of the standard deviation per se.
 
 
-.. function:: mink(pda: arkouda.pdarrayclass.pdarray, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: mink(pda: arkouda.pdarrayclass.pdarray, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Find the `k` minimum values of an array.
 
@@ -1223,7 +1253,7 @@ Functions
    :param pda: Input array.
    :type pda: pdarray
    :param k: The desired count of minimum values to be returned by the output.
-   :type k: Union[int,np.int64]
+   :type k: int_scalars
 
    :returns: The minimum `k` values from pda, sorted
    :rtype: pdarray
@@ -1252,7 +1282,7 @@ Functions
    array([0, 1, 2, 3])
 
 
-.. function:: maxk(pda: arkouda.pdarrayclass.pdarray, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: maxk(pda: arkouda.pdarrayclass.pdarray, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Find the `k` maximum values of an array.
 
@@ -1261,7 +1291,7 @@ Functions
    :param pda: Input array.
    :type pda: pdarray
    :param k: The desired count of maximum values to be returned by the output.
-   :type k: Union[int,np.int64]
+   :type k: int_scalars
 
    :returns: The maximum `k` values from pda, sorted
    :rtype: pdarray, int
@@ -1290,14 +1320,14 @@ Functions
    array([5, 7, 9, 10])
 
 
-.. function:: argmink(pda: arkouda.pdarrayclass.pdarray, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: argmink(pda: arkouda.pdarrayclass.pdarray, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Finds the indices corresponding to the `k` minimum values of an array.
 
    :param pda: Input array.
    :type pda: pdarray
    :param k: The desired count of indices corresponding to minimum array values
-   :type k: Union[int,np.int64]
+   :type k: int_scalars
 
    :returns: The indices of the minimum `k` values from the pda, sorted
    :rtype: pdarray, int
@@ -1326,7 +1356,7 @@ Functions
    array([7, 2, 5, 3])
 
 
-.. function:: argmaxk(pda: arkouda.pdarrayclass.pdarray, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: argmaxk(pda: arkouda.pdarrayclass.pdarray, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Find the indices corresponding to the `k` maximum values of an array.
 
@@ -1335,7 +1365,7 @@ Functions
    :param pda: Input array.
    :type pda: pdarray
    :param k: The desired count of indices corresponding to maxmum array values
-   :type k: Union[int,np.int64]
+   :type k: int_scalars
 
    :returns: The indices of the maximum `k` values from the pda, sorted
    :rtype: pdarray, int
@@ -1847,14 +1877,14 @@ Functions
    <class 'arkouda.strings.Strings'>
 
 
-.. function:: zeros(size: Union[(int, np.int64)], dtype: type = np.float64) -> arkouda.pdarrayclass.pdarray
+.. function:: zeros(size: arkouda.dtypes.int_scalars, dtype: type = np.float64) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray filled with zeros.
 
    :param size: Size of the array (only rank-1 arrays supported)
-   :type size: Union[int,int64]
+   :type size: int_scalars
    :param dtype: Type of resulting array, default float64
-   :type dtype: Union[float, np.float64, int, np.int64, bool, np.bool}
+   :type dtype: all_scalars
 
    :returns: Zeros of the requested size and dtype
    :rtype: pdarray
@@ -1876,12 +1906,12 @@ Functions
    array([False, False, False, False, False])
 
 
-.. function:: ones(size: Union[(int, np.int64)], dtype: type = float64) -> arkouda.pdarrayclass.pdarray
+.. function:: ones(size: arkouda.dtypes.int_scalars, dtype: type = float64) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray filled with ones.
 
    :param size: Size of the array (only rank-1 arrays supported)
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param dtype: Resulting array type, default float64
    :type dtype: Union[float64, int64, bool]
 
@@ -1980,12 +2010,12 @@ Functions
    given, then the first arg is start, second is stop, third is stride.
 
    :param start: Starting value (inclusive)
-   :type start: Union[int,np.int64], optional
+   :type start: int_scalars, optional
    :param stop: Stopping value (exclusive)
-   :type stop: Union[int,np.int64]
+   :type stop: int_scalars
    :param stride: The difference between consecutive elements, the default stride is 1,
                   if stride is specified then start must also be specified.
-   :type stride: Union[int,np.int64], optional
+   :type stride: int_scalars, optional
 
    :returns: Integers from start (inclusive) to stop (exclusive) by stride
    :rtype: pdarray, int64
@@ -2016,16 +2046,16 @@ Functions
    array([-5, -6, -7, -8, -9])
 
 
-.. function:: linspace(start: Union[(float, np.float64, int, np.int64)], stop: Union[(float, np.float64, int, np.int64)], length: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: linspace(start: arkouda.dtypes.numeric_scalars, stop: arkouda.dtypes.numeric_scalars, length: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray of linearly-spaced floats in a closed interval.
 
    :param start: Start of interval (inclusive)
-   :type start: Union[float,np.float64, int, np.int64]
+   :type start: numeric_scalars
    :param stop: End of interval (inclusive)
-   :type stop: Union[float,np.float64, int, np.int64]
+   :type stop: numeric_scalars
    :param length: Number of points
-   :type length: Union[int,np.int64]
+   :type length: int_scalars
 
    :returns: Array of evenly spaced float values along the interval
    :rtype: pdarray, float64
@@ -2051,21 +2081,21 @@ Functions
    array([-5, -3.75, -2.5, -1.25, 0])
 
 
-.. function:: randint(low: Union[(int, np.int64, float, np.float64)], high: Union[(int, np.int64, float, np.float64)], size: Union[(int, np.int64)], dtype=int64, seed: Union[(int, np.int64)] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: randint(low: arkouda.dtypes.numeric_scalars, high: arkouda.dtypes.numeric_scalars, size: arkouda.dtypes.int_scalars, dtype=int64, seed: arkouda.dtypes.int_scalars = None) -> arkouda.pdarrayclass.pdarray
 
    Generate a pdarray of randomized int, float, or bool values in a
    specified range bounded by the low and high parameters.
 
    :param low: The low value (inclusive) of the range
-   :type low: Union[int,np.int64,float,np.float64]
+   :type low: numeric_scalars
    :param high: The high value (exclusive for int, inclusive for float) of the range
-   :type high: Union[int,np.int64,float,np.float64]
+   :type high: numeric_scalars
    :param size: The length of the returned array
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param dtype: The dtype of the array
    :type dtype: Union[int64, float64, bool]
    :param seed: Index for where to pull the first returned value
-   :type seed: Union[int,np.int64]
+   :type seed: int_scalars
 
    :returns: Values drawn uniformly from the specified range having the desired dtype
    :rtype: pdarray
@@ -2100,19 +2130,19 @@ Functions
    array([False, True, True, True, True, False, True, True, True, True])
 
 
-.. function:: uniform(size: Union[(int, np.int64)], low: Union[(float, np.float64)] = 0.0, high: Union[(float, np.float64)] = 1.0, seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: uniform(size: arkouda.dtypes.int_scalars, low: arkouda.dtypes.numeric_scalars = float(0.0), high: arkouda.dtypes.numeric_scalars = 1.0, seed: Union[(None, int_scalars)] = None) -> arkouda.pdarrayclass.pdarray
 
    Generate a pdarray with uniformly distributed random float values
    in a specified range.
 
    :param low: The low value (inclusive) of the range, defaults to 0.0
-   :type low: Union[float,np.float64]
+   :type low: float_scalars
    :param high: The high value (inclusive) of the range, defaults to 1.0
-   :type high: Union[float,np.float64]
+   :type high: float_scalars
    :param size: The length of the returned array
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64], optional
+   :type seed: int_scalars, optional
 
    :returns: Values drawn uniformly from the specified range
    :rtype: pdarray, float64
@@ -2135,14 +2165,14 @@ Functions
    array([0.30013431967121934, 0.47383036230759112, 1.0441791878997098])
 
 
-.. function:: standard_normal(size: Union[(int, np.int64)], seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: standard_normal(size: arkouda.dtypes.int_scalars, seed: Union[(None, int_scalars)] = None) -> arkouda.pdarrayclass.pdarray
 
    Draw real numbers from the standard normal distribution.
 
    :param size: The number of samples to draw (size of the returned array)
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64]
+   :type seed: int_scalars
 
    :returns: The array of random numbers
    :rtype: pdarray, float64
@@ -2164,21 +2194,21 @@ Functions
    array([-0.68586185091150265, 1.1723810583573375, 0.567584107142031])
 
 
-.. function:: random_strings_uniform(minlen: Union[(int, np.int64)], maxlen: Union[(int, np.int64)], size: Union[(int, np.int64)], characters: str = 'uppercase', seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.strings.Strings
+.. function:: random_strings_uniform(minlen: arkouda.dtypes.int_scalars, maxlen: arkouda.dtypes.int_scalars, size: arkouda.dtypes.int_scalars, characters: str = 'uppercase', seed: Union[(None, int_scalars)] = None) -> arkouda.strings.Strings
 
    Generate random strings with lengths uniformly distributed between
    minlen and maxlen, and with characters drawn from a specified set.
 
    :param minlen: The minimum allowed length of string
-   :type minlen: Union[int,np.int64]
+   :type minlen: int_scalars
    :param maxlen: The maximum allowed length of string
-   :type maxlen: Union[int,np.int64]
+   :type maxlen: int_scalars
    :param size: The number of strings to generate
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param characters: The set of characters to draw from
    :type characters: (uppercase, lowercase, numeric, printable, binary)
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[None, Union[int,np.int64]], optional
+   :type seed: Union[None, int_scalars], optional
 
    :returns: The array of random strings
    :rtype: Strings
@@ -2197,21 +2227,21 @@ Functions
    array(['+5"f', '-P]3', '4k', '~HFF', 'F'])
 
 
-.. function:: random_strings_lognormal(logmean: Union[(int, np.int64, float, np.float64)], logstd: Union[(int, np.int64, float, np.float64)], size: Union[(int, np.int64)], characters: str = 'uppercase', seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.strings.Strings
+.. function:: random_strings_lognormal(logmean: arkouda.dtypes.numeric_scalars, logstd: arkouda.dtypes.numeric_scalars, size: arkouda.dtypes.int_scalars, characters: str = 'uppercase', seed: Optional[int_scalars] = None) -> arkouda.strings.Strings
 
    Generate random strings with log-normally distributed lengths and
    with characters drawn from a specified set.
 
    :param logmean: The log-mean of the length distribution
-   :type logmean: Union[int,np.int64,float,np.float64]
+   :type logmean: numeric_scalars
    :param logstd: The log-standard-deviation of the length distribution
-   :type logstd: Union[int,np.int64,float,np.float64]
+   :type logstd: numeric_scalars
    :param size: The number of strings to generate
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param characters: The set of characters to draw from
    :type characters: (uppercase, lowercase, numeric, printable, binary)
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64], optional
+   :type seed: int_scalars, optional
 
    :returns: The Strings object encapsulating a pdarray of random strings
    :rtype: Strings
@@ -2486,7 +2516,7 @@ Functions
    :raises TypeError: Raised if the parameter is not a pdarray
 
 
-.. function:: where(condition: arkouda.pdarrayclass.pdarray, A: Union[(Union[int, float, np.int64, np.float64], pdarray)], B: Union[(Union[int, float, np.int64, np.float64], pdarray)]) -> arkouda.pdarrayclass.pdarray
+.. function:: where(condition: arkouda.pdarrayclass.pdarray, A: Union[(numeric_scalars, pdarray)], B: Union[(numeric_scalars, pdarray)]) -> arkouda.pdarrayclass.pdarray
 
    Returns an array with elements chosen from A and B based upon a
    conditioning array. As is the case with numpy.where, the return array
@@ -2497,9 +2527,9 @@ Functions
    :param condition: Used to choose values from A or B
    :type condition: pdarray
    :param A: Value(s) used when condition is True
-   :type A: Union[Union[int,float,np.int64,np.float64], pdarray]
+   :type A: Union[numeric_scalars, pdarray]
    :param B: Value(s) used when condition is False
-   :type B: Union[Union[int,float,np.int64,np.float64], pdarray]
+   :type B: Union[numeric_scalars, pdarray]
 
    :returns: Values chosen from A where the condition is True and B where
              the condition is False
@@ -2538,14 +2568,14 @@ Functions
    is not currently supported in Arkouda
 
 
-.. function:: histogram(pda: arkouda.pdarrayclass.pdarray, bins: Union[(int, np.int64)] = 10) -> arkouda.pdarrayclass.pdarray
+.. function:: histogram(pda: arkouda.pdarrayclass.pdarray, bins: arkouda.dtypes.int_scalars = 10) -> arkouda.pdarrayclass.pdarray
 
    Compute a histogram of evenly spaced bins over the range of an array.
 
    :param pda: The values to histogram
    :type pda: pdarray
    :param bins: The number of equal-size bins to use (default: 10)
-   :type bins: Union[int,np.int64]
+   :type bins: int_scalars
 
    :returns: The number of values present in each bin
    :rtype: pdarray, int64 or float64
@@ -3365,19 +3395,19 @@ Functions
 
       The number of strings in the array
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: nbytes
 
       The total number of bytes in all strings
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: ndim
 
       The rank of the array (currently only rank 1 arrays supported)
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: shape
 
@@ -3430,7 +3460,7 @@ Functions
       Return repr(self).
 
 
-   .. method:: _binop(self, other: Union[(Strings, np.str_, str)], op: str) -> arkouda.pdarrayclass.pdarray
+   .. method:: _binop(self, other: Union[(Strings, str_scalars)], op: str) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested binop on this Strings instance and the
           parameter Strings object and returns the results within
@@ -3438,7 +3468,7 @@ Functions
 
           Parameters
           ----------
-          other : Strings, np.str_, or str
+          other : Strings, str_scalars
               the other object is a Strings object
           op : str
               name of the binary operation to be performed
@@ -3482,17 +3512,17 @@ Functions
       :raises RuntimeError: Raised if there is a server-side error thrown
 
 
-   .. method:: contains(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: contains(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element contains the given substring.
 
       :param substr: The substring in the form of string or byte array to search for
-      :type substr: Union[str, bytes, np.str_]
+      :type substr: str_scalars
 
       :returns: True for elements that contain substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not bytes or str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.startswith`, :obj:`Strings.endswith`
@@ -3506,17 +3536,17 @@ Functions
       array([True, True, True, True, True])
 
 
-   .. method:: startswith(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: startswith(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element starts with the given substring.
 
       :param substr: The prefix to search for
-      :type substr: Union[str,bytes,np.str_]
+      :type substr: Union[bytes,str_scalars]
 
       :returns: True for elements that start with substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not a bytes ior str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.contains`, :obj:`Strings.endswith`
@@ -3530,17 +3560,17 @@ Functions
       array([True, True, True, True, True])
 
 
-   .. method:: endswith(self, substr: Union[(str, bytes, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: endswith(self, substr: Union[(bytes, str_scalars)]) -> arkouda.pdarrayclass.pdarray
 
       Check whether each element ends with the given substring.
 
       :param substr: The suffix to search for
-      :type substr: Union[str,bytes,np.str_]
+      :type substr: Union[bytes,str_scalars]
 
       :returns: True for elements that end with substr, False otherwise
       :rtype: pdarray, bool
 
-      :raises TypeError: Raised if the substr parameter is not a str, bytes, or np.str_
+      :raises TypeError: Raised if the substr parameter is not bytes or str_scalars
       :raises RuntimeError: Raised if there is a server-side error thrown
 
       .. seealso:: :obj:`Strings.contains`, :obj:`Strings.startswith`
@@ -3580,14 +3610,14 @@ Functions
       array([0, 2, 5])
 
 
-   .. method:: peel(self, delimiter: Union[(str, bytes, np.str_)], times: Union[(int, np.int64)] = 1, includeDelimiter: bool = False, keepPartial: bool = False, fromRight: bool = False) -> Tuple
+   .. method:: peel(self, delimiter: Union[(bytes, str_scalars)], times: arkouda.dtypes.int_scalars = 1, includeDelimiter: bool = False, keepPartial: bool = False, fromRight: bool = False) -> Tuple
 
       Peel off one or more delimited fields from each string (similar
       to string.partition), returning two new arrays of strings.
       *Warning*: This function is experimental and not guaranteed to work.
 
       :param delimiter: The separator where the split will occur
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
       :param times: The number of times the delimiter is sought, i.e. skip over
                     the first (times-1) delimiters
       :type times: Union[int,np.int64]
@@ -3612,7 +3642,7 @@ Functions
                     is true)
       :rtype: Tuple[Strings,Strings]
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_, if
+      :raises TypeError: Raised if the delimiter parameter is not byte or str_scalars, if
           times is not int64, or if includeDelimiter, keepPartial, or
           fromRight is not bool
       :raises ValueError: Raised if times is < 1
@@ -3633,14 +3663,14 @@ Functions
       (array(['a.b', 'c.d', 'e.f']), array(['', '', 'g']))
 
 
-   .. method:: rpeel(self, delimiter: Union[(str, bytes, np.str_)], times: Union[(int, np.int64)] = 1, includeDelimiter: bool = False, keepPartial: bool = False)
+   .. method:: rpeel(self, delimiter: Union[(bytes, str_scalars)], times: arkouda.dtypes.int_scalars = 1, includeDelimiter: bool = False, keepPartial: bool = False)
 
       Peel off one or more delimited fields from the end of each string
       (similar to string.rpartition), returning two new arrays of strings.
       *Warning*: This function is experimental and not guaranteed to work.
 
       :param delimiter: The separator where the split will occur
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
       :param times: The number of times the delimiter is sought, i.e. skip over
                     the last (times-1) delimiters
       :type times: Union[int,np.int64]
@@ -3656,7 +3686,7 @@ Functions
       :returns: * **left** (*Strings*) -- The remainder of the string after peeling
                 * **right** (*Strings*) -- The field(s) that were peeled from the right of each string
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_ or
+      :raises TypeError: Raised if the delimiter parameter is not bytes or str_scalars or
           if times is not int64
       :raises ValueError: Raised if times is < 1
       :raises RuntimeError: Raised if there is a server-side error thrown
@@ -3673,7 +3703,7 @@ Functions
       (array(['a', 'c', 'e']), array(['b', 'd', 'f.g']))
 
 
-   .. method:: stick(self, other: arkouda.strings.Strings, delimiter: Union[(str, bytes, np.str_)] = '', toLeft: bool = False) -> arkouda.strings.Strings
+   .. method:: stick(self, other: arkouda.strings.Strings, delimiter: Union[(bytes, str_scalars)] = '', toLeft: bool = False) -> arkouda.strings.Strings
 
       Join the strings from another array onto one end of the strings
       of this array, optionally inserting a delimiter.
@@ -3690,7 +3720,7 @@ Functions
       :returns: The array of joined strings
       :rtype: Strings
 
-      :raises TypeError: Raised if the delimiter parameter is not str, bytes, or np.str_
+      :raises TypeError: Raised if the delimiter parameter is not bytes or str_scalars
           or if the other parameter is not a Strings instance
       :raises ValueError: Raised if times is < 1
       :raises RuntimeError: Raised if there is a server-side error thrown
@@ -3708,7 +3738,7 @@ Functions
    .. method:: __add__(self, other: arkouda.strings.Strings) -> arkouda.strings.Strings
 
 
-   .. method:: lstick(self, other: arkouda.strings.Strings, delimiter: Union[(str, bytes, np.str_)] = '') -> arkouda.strings.Strings
+   .. method:: lstick(self, other: arkouda.strings.Strings, delimiter: Union[(bytes, str_scalars)] = '') -> arkouda.strings.Strings
 
       Join the strings from another array onto the left of the strings
       of this array, optionally inserting a delimiter.
@@ -3717,7 +3747,7 @@ Functions
       :param other: The strings to join onto self's strings
       :type other: Strings
       :param delimiter: String inserted between self and other
-      :type delimiter: Union[str,bytes,np.str_]
+      :type delimiter: Union[bytes,str_scalars]
 
       :returns: The array of joined strings, as other + self
       :rtype: Strings
@@ -4026,16 +4056,16 @@ Functions
       Return repr(self).
 
 
-   .. method:: _binop(self, other: Union[(Categorical, str, np.str_)], op: Union[(str, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: _binop(self, other: Union[(Categorical, str_scalars)], op: arkouda.dtypes.str_scalars) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested binop on this Categorical instance and returns
           the results within a pdarray object.
 
           Parameters
           ----------
-          other : Union[Categorical,str,np.str_]
-              the other object is a Categorical object of string scalar
-          op : Union[str,np.str_]
+          other : Union[Categorical,str_scalars]
+              the other object is a Categorical object or string scalar
+          op : str_scalars
               name of the binary operation to be performed
 
           Returns
@@ -4053,16 +4083,16 @@ Functions
               binary operation
 
 
-   .. method:: _r_binop(self, other: Union[(Categorical, str, np.str_)], op: Union[(str, np.str)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: _r_binop(self, other: Union[(Categorical, str_scalars)], op: arkouda.dtypes.str_scalars) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested reverse binop on this Categorical instance and
           returns the results within a pdarray object.
 
           Parameters
           ----------
-          other : Union[Categorical,str,np.str_]
+          other : Union[Categorical,str_scalars]
               the other object is a Categorical object or string scalar
-          op : Union[str,np.str_]
+          op : str_scalars
               name of the binary operation to be performed
 
           Returns
@@ -4242,7 +4272,7 @@ Functions
    :raises TypeError: Raised if logLevel is not a LogLevel enum
 
 
-.. class:: pdarray(name: str, mydtype: numpy.dtype, size: Union[(int, np.int64)], ndim: Union[(int, np.int64)], shape: Sequence[int], itemsize: Union[(int, np.int64)])
+.. class:: pdarray(name: str, mydtype: numpy.dtype, size: arkouda.dtypes.int_scalars, ndim: arkouda.dtypes.int_scalars, shape: Sequence[int], itemsize: arkouda.dtypes.int_scalars)
 
 
    The basic arkouda array class. This class contains only the
@@ -4268,13 +4298,13 @@ Functions
 
       The number of elements in the array
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: ndim
 
       The rank of the array (currently only rank 1 arrays supported)
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: shape
 
@@ -4286,7 +4316,7 @@ Functions
 
       The size in bytes of each element
 
-      :type: Union[int,np.int64]
+      :type: int_scalars
 
    .. attribute:: BinOps
       
@@ -4532,12 +4562,12 @@ Functions
    .. method:: __setitem__(self, key, value)
 
 
-   .. method:: fill(self, value: Union[(int, np.int64, float, np.float64)]) -> None
+   .. method:: fill(self, value: arkouda.dtypes.numeric_scalars) -> None
 
       Fill the array (in place) with a constant value.
 
       :param value:
-      :type value: Union[int,np.int64,float,np.float64]
+      :type value: numeric_scalars
 
       :raises TypeError: Raised if value is not an int, int64, float, or float64
 
@@ -4565,7 +4595,7 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: sum(self) -> Union[(np.float64, np.int64)]
+   .. method:: sum(self) -> arkouda.dtypes.numpy_scalars
 
       Return the sum of all elements in the array.
 
@@ -4576,12 +4606,12 @@ Functions
       always a np.float64 or np.int64.
 
 
-   .. method:: min(self) -> Union[(np.float64, np.int64)]
+   .. method:: min(self) -> arkouda.dtypes.numpy_scalars
 
       Return the minimum value of the array.
 
 
-   .. method:: max(self) -> Union[(np.float64, np.int64)]
+   .. method:: max(self) -> arkouda.dtypes.numpy_scalars
 
       Return the maximum value of the array.
 
@@ -4601,12 +4631,12 @@ Functions
       Return the mean of the array.
 
 
-   .. method:: var(self, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+   .. method:: var(self, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
       Compute the variance. See ``arkouda.var`` for details.
 
       :param ddof: "Delta Degrees of Freedom" used in calculating var
-      :type ddof: Union[int,np.int64]
+      :type ddof: int_scalars
 
       :returns: The scalar variance of the array
       :rtype: np.float64
@@ -4616,12 +4646,12 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: std(self, ddof: Union[(int, np.int64)] = 0) -> numpy.float64
+   .. method:: std(self, ddof: arkouda.dtypes.int_scalars = 0) -> numpy.float64
 
       Compute the standard deviation. See ``arkouda.std`` for details.
 
       :param ddof: "Delta Degrees of Freedom" used in calculating std
-      :type ddof: Union[int,np.int64]
+      :type ddof: int_scalars
 
       :returns: The scalar standard deviation of the array
       :rtype: np.float64
@@ -4630,12 +4660,12 @@ Functions
       :raises RuntimeError: Raised if there's a server-side error thrown
 
 
-   .. method:: mink(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: mink(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -4643,12 +4673,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: maxk(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: maxk(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -4656,12 +4686,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: argmink(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: argmink(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: Indices corresponding to the maximum `k` values from pda
       :rtype: pdarray, int
@@ -4669,12 +4699,12 @@ Functions
       :raises TypeError: Raised if pda is not a pdarray
 
 
-   .. method:: argmaxk(self, k: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: argmaxk(self, k: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
       Finds the indices corresponding to the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: Indices corresponding to the  maximum `k` values, sorted
       :rtype: pdarray, int
@@ -5257,7 +5287,7 @@ Functions
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -5270,7 +5300,7 @@ Functions
       Compute the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int

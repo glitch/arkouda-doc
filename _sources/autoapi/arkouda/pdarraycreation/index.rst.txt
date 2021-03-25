@@ -133,14 +133,14 @@ Functions
    <class 'arkouda.strings.Strings'>
 
 
-.. function:: zeros(size: Union[(int, np.int64)], dtype: type = np.float64) -> arkouda.pdarrayclass.pdarray
+.. function:: zeros(size: arkouda.dtypes.int_scalars, dtype: type = np.float64) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray filled with zeros.
 
    :param size: Size of the array (only rank-1 arrays supported)
-   :type size: Union[int,int64]
+   :type size: int_scalars
    :param dtype: Type of resulting array, default float64
-   :type dtype: Union[float, np.float64, int, np.int64, bool, np.bool}
+   :type dtype: all_scalars
 
    :returns: Zeros of the requested size and dtype
    :rtype: pdarray
@@ -162,12 +162,12 @@ Functions
    array([False, False, False, False, False])
 
 
-.. function:: ones(size: Union[(int, np.int64)], dtype: type = float64) -> arkouda.pdarrayclass.pdarray
+.. function:: ones(size: arkouda.dtypes.int_scalars, dtype: type = float64) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray filled with ones.
 
    :param size: Size of the array (only rank-1 arrays supported)
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param dtype: Resulting array type, default float64
    :type dtype: Union[float64, int64, bool]
 
@@ -266,12 +266,12 @@ Functions
    given, then the first arg is start, second is stop, third is stride.
 
    :param start: Starting value (inclusive)
-   :type start: Union[int,np.int64], optional
+   :type start: int_scalars, optional
    :param stop: Stopping value (exclusive)
-   :type stop: Union[int,np.int64]
+   :type stop: int_scalars
    :param stride: The difference between consecutive elements, the default stride is 1,
                   if stride is specified then start must also be specified.
-   :type stride: Union[int,np.int64], optional
+   :type stride: int_scalars, optional
 
    :returns: Integers from start (inclusive) to stop (exclusive) by stride
    :rtype: pdarray, int64
@@ -302,16 +302,16 @@ Functions
    array([-5, -6, -7, -8, -9])
 
 
-.. function:: linspace(start: Union[(float, np.float64, int, np.int64)], stop: Union[(float, np.float64, int, np.int64)], length: Union[(int, np.int64)]) -> arkouda.pdarrayclass.pdarray
+.. function:: linspace(start: arkouda.dtypes.numeric_scalars, stop: arkouda.dtypes.numeric_scalars, length: arkouda.dtypes.int_scalars) -> arkouda.pdarrayclass.pdarray
 
    Create a pdarray of linearly-spaced floats in a closed interval.
 
    :param start: Start of interval (inclusive)
-   :type start: Union[float,np.float64, int, np.int64]
+   :type start: numeric_scalars
    :param stop: End of interval (inclusive)
-   :type stop: Union[float,np.float64, int, np.int64]
+   :type stop: numeric_scalars
    :param length: Number of points
-   :type length: Union[int,np.int64]
+   :type length: int_scalars
 
    :returns: Array of evenly spaced float values along the interval
    :rtype: pdarray, float64
@@ -337,21 +337,21 @@ Functions
    array([-5, -3.75, -2.5, -1.25, 0])
 
 
-.. function:: randint(low: Union[(int, np.int64, float, np.float64)], high: Union[(int, np.int64, float, np.float64)], size: Union[(int, np.int64)], dtype=int64, seed: Union[(int, np.int64)] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: randint(low: arkouda.dtypes.numeric_scalars, high: arkouda.dtypes.numeric_scalars, size: arkouda.dtypes.int_scalars, dtype=int64, seed: arkouda.dtypes.int_scalars = None) -> arkouda.pdarrayclass.pdarray
 
    Generate a pdarray of randomized int, float, or bool values in a
    specified range bounded by the low and high parameters.
 
    :param low: The low value (inclusive) of the range
-   :type low: Union[int,np.int64,float,np.float64]
+   :type low: numeric_scalars
    :param high: The high value (exclusive for int, inclusive for float) of the range
-   :type high: Union[int,np.int64,float,np.float64]
+   :type high: numeric_scalars
    :param size: The length of the returned array
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param dtype: The dtype of the array
    :type dtype: Union[int64, float64, bool]
    :param seed: Index for where to pull the first returned value
-   :type seed: Union[int,np.int64]
+   :type seed: int_scalars
 
    :returns: Values drawn uniformly from the specified range having the desired dtype
    :rtype: pdarray
@@ -386,19 +386,19 @@ Functions
    array([False, True, True, True, True, False, True, True, True, True])
 
 
-.. function:: uniform(size: Union[(int, np.int64)], low: Union[(float, np.float64)] = 0.0, high: Union[(float, np.float64)] = 1.0, seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: uniform(size: arkouda.dtypes.int_scalars, low: arkouda.dtypes.numeric_scalars = float(0.0), high: arkouda.dtypes.numeric_scalars = 1.0, seed: Union[(None, int_scalars)] = None) -> arkouda.pdarrayclass.pdarray
 
    Generate a pdarray with uniformly distributed random float values
    in a specified range.
 
    :param low: The low value (inclusive) of the range, defaults to 0.0
-   :type low: Union[float,np.float64]
+   :type low: float_scalars
    :param high: The high value (inclusive) of the range, defaults to 1.0
-   :type high: Union[float,np.float64]
+   :type high: float_scalars
    :param size: The length of the returned array
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64], optional
+   :type seed: int_scalars, optional
 
    :returns: Values drawn uniformly from the specified range
    :rtype: pdarray, float64
@@ -421,14 +421,14 @@ Functions
    array([0.30013431967121934, 0.47383036230759112, 1.0441791878997098])
 
 
-.. function:: standard_normal(size: Union[(int, np.int64)], seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.pdarrayclass.pdarray
+.. function:: standard_normal(size: arkouda.dtypes.int_scalars, seed: Union[(None, int_scalars)] = None) -> arkouda.pdarrayclass.pdarray
 
    Draw real numbers from the standard normal distribution.
 
    :param size: The number of samples to draw (size of the returned array)
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64]
+   :type seed: int_scalars
 
    :returns: The array of random numbers
    :rtype: pdarray, float64
@@ -450,21 +450,21 @@ Functions
    array([-0.68586185091150265, 1.1723810583573375, 0.567584107142031])
 
 
-.. function:: random_strings_uniform(minlen: Union[(int, np.int64)], maxlen: Union[(int, np.int64)], size: Union[(int, np.int64)], characters: str = 'uppercase', seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.strings.Strings
+.. function:: random_strings_uniform(minlen: arkouda.dtypes.int_scalars, maxlen: arkouda.dtypes.int_scalars, size: arkouda.dtypes.int_scalars, characters: str = 'uppercase', seed: Union[(None, int_scalars)] = None) -> arkouda.strings.Strings
 
    Generate random strings with lengths uniformly distributed between
    minlen and maxlen, and with characters drawn from a specified set.
 
    :param minlen: The minimum allowed length of string
-   :type minlen: Union[int,np.int64]
+   :type minlen: int_scalars
    :param maxlen: The maximum allowed length of string
-   :type maxlen: Union[int,np.int64]
+   :type maxlen: int_scalars
    :param size: The number of strings to generate
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param characters: The set of characters to draw from
    :type characters: (uppercase, lowercase, numeric, printable, binary)
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[None, Union[int,np.int64]], optional
+   :type seed: Union[None, int_scalars], optional
 
    :returns: The array of random strings
    :rtype: Strings
@@ -483,21 +483,21 @@ Functions
    array(['+5"f', '-P]3', '4k', '~HFF', 'F'])
 
 
-.. function:: random_strings_lognormal(logmean: Union[(int, np.int64, float, np.float64)], logstd: Union[(int, np.int64, float, np.float64)], size: Union[(int, np.int64)], characters: str = 'uppercase', seed: Union[(None, Union[int, np.int64])] = None) -> arkouda.strings.Strings
+.. function:: random_strings_lognormal(logmean: arkouda.dtypes.numeric_scalars, logstd: arkouda.dtypes.numeric_scalars, size: arkouda.dtypes.int_scalars, characters: str = 'uppercase', seed: Optional[int_scalars] = None) -> arkouda.strings.Strings
 
    Generate random strings with log-normally distributed lengths and
    with characters drawn from a specified set.
 
    :param logmean: The log-mean of the length distribution
-   :type logmean: Union[int,np.int64,float,np.float64]
+   :type logmean: numeric_scalars
    :param logstd: The log-standard-deviation of the length distribution
-   :type logstd: Union[int,np.int64,float,np.float64]
+   :type logstd: numeric_scalars
    :param size: The number of strings to generate
-   :type size: Union[int,np.int64]
+   :type size: int_scalars
    :param characters: The set of characters to draw from
    :type characters: (uppercase, lowercase, numeric, printable, binary)
    :param seed: Value used to initialize the random number generator
-   :type seed: Union[int,np.int64], optional
+   :type seed: int_scalars, optional
 
    :returns: The Strings object encapsulating a pdarray of random strings
    :rtype: Strings

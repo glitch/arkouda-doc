@@ -91,7 +91,7 @@
 
 <dl class="py method">
 <dt id="arkouda.pdarray.sum">
-<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">sum</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.sum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">sum</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.uint8</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.str_</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the sum of all elements in the array.</p>
 </dd></dl>
 
@@ -104,13 +104,13 @@ always a np.float64 or np.int64.</p>
 
 <dl class="py method">
 <dt id="arkouda.pdarray.min">
-<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.min" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.uint8</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.str_</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the minimum value of the array.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="arkouda.pdarray.max">
-<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.max" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.int64</span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.uint8</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.str_</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#arkouda.pdarray.max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the maximum value of the array.</p>
 </dd></dl>
 
@@ -138,7 +138,7 @@ always a np.float64 or np.int64.</p>
 <dd><p>Compute the variance. See <code class="docutils literal notranslate"><span class="pre">arkouda.var</span></code> for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ddof</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – “Delta Degrees of Freedom” used in calculating var</p>
+<dd class="field-odd"><p><strong>ddof</strong> (<em>int_scalars</em>) – “Delta Degrees of Freedom” used in calculating var</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The scalar variance of the array</p>
@@ -162,7 +162,7 @@ always a np.float64 or np.int64.</p>
 <dd><p>Compute the standard deviation. See <code class="docutils literal notranslate"><span class="pre">arkouda.std</span></code> for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ddof</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – “Delta Degrees of Freedom” used in calculating std</p>
+<dd class="field-odd"><p><strong>ddof</strong> (<em>int_scalars</em>) – “Delta Degrees of Freedom” used in calculating std</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The scalar standard deviation of the array</p>
@@ -185,7 +185,7 @@ always a np.float64 or np.int64.</p>
 <dd><p>Compute the minimum “k” values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>k</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The desired count of maximum values to be returned by the output.</p>
+<dd class="field-odd"><p><strong>k</strong> (<em>int_scalars</em>) – The desired count of maximum values to be returned by the output.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The maximum <cite>k</cite> values from pda</p>
@@ -201,11 +201,11 @@ always a np.float64 or np.int64.</p>
 
 <dl class="py method">
 <dt id="arkouda.pdarray.maxk">
-<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">maxk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.int64</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pdarray</span><a class="headerlink" href="#arkouda.pdarray.maxk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">pdarray.</span></code><code class="sig-name descname"><span class="pre">maxk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int_scalars</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pdarray</span><a class="headerlink" href="#arkouda.pdarray.maxk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the maximum “k” values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>k</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The desired count of maximum values to be returned by the output.</p>
+<dd class="field-odd"><p><strong>k</strong> (<em>int_scalars</em>) – The desired count of maximum values to be returned by the output.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The maximum <cite>k</cite> values from pda</p>
@@ -225,7 +225,7 @@ always a np.float64 or np.int64.</p>
 <dd><p>Compute the minimum “k” values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>k</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The desired count of maximum values to be returned by the output.</p>
+<dd class="field-odd"><p><strong>k</strong> (<em>int_scalars</em>) – The desired count of maximum values to be returned by the output.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Indices corresponding to the maximum <cite>k</cite> values from pda</p>
@@ -245,7 +245,7 @@ always a np.float64 or np.int64.</p>
 <dd><p>Finds the indices corresponding to the maximum “k” values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>k</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The desired count of maximum values to be returned by the output.</p>
+<dd class="field-odd"><p><strong>k</strong> (<em>int_scalars</em>) – The desired count of maximum values to be returned by the output.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Indices corresponding to the  maximum <cite>k</cite> values, sorted</p>
@@ -271,7 +271,7 @@ always a np.float64 or np.int64.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pda</strong> (<a class="reference internal" href="pdarray.html#arkouda.pdarray" title="arkouda.pdarray"><em>pdarray</em></a>) – The values to histogram</p></li>
-<li><p><strong>bins</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The number of equal-size bins to use (default: 10)</p></li>
+<li><p><strong>bins</strong> (<em>int_scalars</em>) – The number of equal-size bins to use (default: 10)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -442,7 +442,7 @@ return_counts parameter is set to True.</p>
       &copy;2020, Michael Merrill and William Reus.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

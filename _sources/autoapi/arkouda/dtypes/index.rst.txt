@@ -48,6 +48,42 @@ Functions
 
    
 
+.. data:: bool_scalars
+   
+
+   
+
+.. data:: float_scalars
+   
+
+   
+
+.. data:: int_scalars
+   
+
+   
+
+.. data:: numeric_scalars
+   
+
+   
+
+.. data:: numpy_scalars
+   
+
+   
+
+.. data:: str_scalars
+   
+
+   
+
+.. data:: all_scalars
+   
+
+   The DType enum defines the supported Arkouda data types in string form.
+
+
 .. data:: ARKOUDA_SUPPORTED_DTYPES
    
 

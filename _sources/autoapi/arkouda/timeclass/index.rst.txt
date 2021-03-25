@@ -220,7 +220,7 @@ Functions
       Compute the minimum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int
@@ -233,7 +233,7 @@ Functions
       Compute the maximum "k" values.
 
       :param k: The desired count of maximum values to be returned by the output.
-      :type k: Union[int,np.int64]
+      :type k: int_scalars
 
       :returns: The maximum `k` values from pda
       :rtype: pdarray, int

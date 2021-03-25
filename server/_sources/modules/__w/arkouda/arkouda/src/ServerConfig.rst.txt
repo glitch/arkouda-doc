@@ -76,6 +76,18 @@ arkouda server config param and config const
 
 .. function:: proc getEnv(name: string, default = ""): string
 
+.. function:: proc getPhysicalMemHere()
+
+   
+   Get the physical memory available on this locale
+   
+
+.. function:: proc getMemUsed()
+
+   
+   Get the memory used on this locale
+   
+
 .. function:: proc getMemLimit(): uint
 
    

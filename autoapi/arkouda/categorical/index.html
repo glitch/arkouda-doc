@@ -249,13 +249,13 @@ value, but proceed with caution.</p>
 
 <dl class="py method">
 <dt id="arkouda.categorical.Categorical._binop">
-<code class="sig-name descname"><span class="pre">_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.categorical.Categorical" title="arkouda.categorical.Categorical"><span class="pre">Categorical</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.categorical.Categorical._binop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.categorical.Categorical" title="arkouda.categorical.Categorical"><span class="pre">Categorical</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../dtypes/index.html#arkouda.dtypes.str_scalars" title="arkouda.dtypes.str_scalars"><span class="pre">arkouda.dtypes.str_scalars</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.categorical.Categorical._binop" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Executes the requested binop on this Categorical instance and returns</dt><dd><p>the results within a pdarray object.</p>
 <dl class="simple">
-<dt>other<span class="classifier">Union[Categorical,str,np.str_]</span></dt><dd><p>the other object is a Categorical object of string scalar</p>
+<dt>other<span class="classifier">Union[Categorical,str_scalars]</span></dt><dd><p>the other object is a Categorical object or string scalar</p>
 </dd>
-<dt>op<span class="classifier">Union[str,np.str_]</span></dt><dd><p>name of the binary operation to be performed</p>
+<dt>op<span class="classifier">str_scalars</span></dt><dd><p>name of the binary operation to be performed</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -280,13 +280,13 @@ binary operation</p>
 
 <dl class="py method">
 <dt id="arkouda.categorical.Categorical._r_binop">
-<code class="sig-name descname"><span class="pre">_r_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.categorical.Categorical" title="arkouda.categorical.Categorical"><span class="pre">Categorical</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.categorical.Categorical._r_binop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">_r_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.categorical.Categorical" title="arkouda.categorical.Categorical"><span class="pre">Categorical</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../dtypes/index.html#arkouda.dtypes.str_scalars" title="arkouda.dtypes.str_scalars"><span class="pre">arkouda.dtypes.str_scalars</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.categorical.Categorical._r_binop" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Executes the requested reverse binop on this Categorical instance and</dt><dd><p>returns the results within a pdarray object.</p>
 <dl class="simple">
-<dt>other<span class="classifier">Union[Categorical,str,np.str_]</span></dt><dd><p>the other object is a Categorical object or string scalar</p>
+<dt>other<span class="classifier">Union[Categorical,str_scalars]</span></dt><dd><p>the other object is a Categorical object or string scalar</p>
 </dd>
-<dt>op<span class="classifier">Union[str,np.str_]</span></dt><dd><p>name of the binary operation to be performed</p>
+<dt>op<span class="classifier">str_scalars</span></dt><dd><p>name of the binary operation to be performed</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -583,7 +583,7 @@ results in non-deterministic ordering of elements.</p></li>
       &copy;2020, Michael Merrill and William Reus.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

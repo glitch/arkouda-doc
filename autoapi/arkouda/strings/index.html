@@ -84,7 +84,7 @@ rather its instances are created by other arkouda functions.</p>
 <dd><p>The number of strings in the array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Union[int,np.int64]</p>
+<dd class="field-odd"><p>int_scalars</p>
 </dd>
 </dl>
 </dd></dl>
@@ -95,7 +95,7 @@ rather its instances are created by other arkouda functions.</p>
 <dd><p>The total number of bytes in all strings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Union[int,np.int64]</p>
+<dd class="field-odd"><p>int_scalars</p>
 </dd>
 </dl>
 </dd></dl>
@@ -106,7 +106,7 @@ rather its instances are created by other arkouda functions.</p>
 <dd><p>The rank of the array (currently only rank 1 arrays supported)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Union[int,np.int64]</p>
+<dd class="field-odd"><p>int_scalars</p>
 </dd>
 </dl>
 </dd></dl>
@@ -182,12 +182,12 @@ raw bytes of all strings, delimited by nulls.</p>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings._binop">
-<code class="sig-name descname"><span class="pre">_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">Strings</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings._binop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">_binop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">Strings</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings._binop" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Executes the requested binop on this Strings instance and the</dt><dd><p>parameter Strings object and returns the results within
 a pdarray object.</p>
-<dl>
-<dt>other<span class="classifier">Strings, <a href="#id1"><span class="problematic" id="id2">np.str_</span></a>, or str</span></dt><dd><p>the other object is a Strings object</p>
+<dl class="simple">
+<dt>other<span class="classifier">Strings, str_scalars</span></dt><dd><p>the other object is a Strings object</p>
 </dd>
 <dt>op<span class="classifier">str</span></dt><dd><p>name of the binary operation to be performed</p>
 </dd>
@@ -249,11 +249,11 @@ binary operation</p>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.contains">
-<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.contains" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether each element contains the given substring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>substr</strong> (Union[str, bytes, <a href="#id3"><span class="problematic" id="id4">np.str_</span></a>]) – The substring in the form of string or byte array to search for</p>
+<dd class="field-odd"><p><strong>substr</strong> (<em>str_scalars</em>) – The substring in the form of string or byte array to search for</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True for elements that contain substr, False otherwise</p>
@@ -263,7 +263,7 @@ binary operation</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the substr parameter is not a str, bytes, or <a href="#id5"><span class="problematic" id="id6">np.str_</span></a></p></li>
+<li><p><strong>TypeError</strong> – Raised if the substr parameter is not bytes or str_scalars</p></li>
 <li><p><strong>RuntimeError</strong> – Raised if there is a server-side error thrown</p></li>
 </ul>
 </dd>
@@ -284,11 +284,11 @@ binary operation</p>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.startswith">
-<code class="sig-name descname"><span class="pre">startswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.startswith" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">startswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.startswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether each element starts with the given substring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>substr</strong> (<em>Union</em><em>[</em><em>str</em><em>,</em><em>bytes</em><em>,</em><em>np.str_</em><em>]</em>) – The prefix to search for</p>
+<dd class="field-odd"><p><strong>substr</strong> (<em>Union</em><em>[</em><em>bytes</em><em>,</em><em>str_scalars</em><em>]</em>) – The prefix to search for</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True for elements that start with substr, False otherwise</p>
@@ -298,7 +298,7 @@ binary operation</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the substr parameter is not a str, bytes, or <a href="#id7"><span class="problematic" id="id8">np.str_</span></a></p></li>
+<li><p><strong>TypeError</strong> – Raised if the substr parameter is not a bytes ior str_scalars</p></li>
 <li><p><strong>RuntimeError</strong> – Raised if there is a server-side error thrown</p></li>
 </ul>
 </dd>
@@ -319,11 +319,11 @@ binary operation</p>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.endswith">
-<code class="sig-name descname"><span class="pre">endswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.endswith" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">endswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../pdarrayclass/index.html#arkouda.pdarrayclass.pdarray" title="arkouda.pdarrayclass.pdarray"><span class="pre">arkouda.pdarrayclass.pdarray</span></a><a class="headerlink" href="#arkouda.strings.Strings.endswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether each element ends with the given substring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>substr</strong> (<em>Union</em><em>[</em><em>str</em><em>,</em><em>bytes</em><em>,</em><em>np.str_</em><em>]</em>) – The suffix to search for</p>
+<dd class="field-odd"><p><strong>substr</strong> (<em>Union</em><em>[</em><em>bytes</em><em>,</em><em>str_scalars</em><em>]</em>) – The suffix to search for</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True for elements that end with substr, False otherwise</p>
@@ -333,7 +333,7 @@ binary operation</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the substr parameter is not a str, bytes, or <a href="#id9"><span class="problematic" id="id10">np.str_</span></a></p></li>
+<li><p><strong>TypeError</strong> – Raised if the substr parameter is not bytes or str_scalars</p></li>
 <li><p><strong>RuntimeError</strong> – Raised if there is a server-side error thrown</p></li>
 </ul>
 </dd>
@@ -390,14 +390,14 @@ in the return array</p></li>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.peel">
-<code class="sig-name descname"><span class="pre">peel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.int64</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeDelimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepPartial</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fromRight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><a class="headerlink" href="#arkouda.strings.Strings.peel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">peel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../dtypes/index.html#arkouda.dtypes.int_scalars" title="arkouda.dtypes.int_scalars"><span class="pre">arkouda.dtypes.int_scalars</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeDelimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepPartial</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fromRight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><a class="headerlink" href="#arkouda.strings.Strings.peel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Peel off one or more delimited fields from each string (similar
 to string.partition), returning two new arrays of strings.
 <em>Warning</em>: This function is experimental and not guaranteed to work.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>str</em><em>,</em><em>bytes</em><em>,</em><em>np.str_</em><em>]</em>) – The separator where the split will occur</p></li>
+<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>bytes</em><em>,</em><em>str_scalars</em><em>]</em>) – The separator where the split will occur</p></li>
 <li><p><strong>times</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The number of times the delimiter is sought, i.e. skip over
 the first (times-1) delimiters</p></li>
 <li><p><strong>includeDelimiter</strong> (<em>bool</em>) – If true, append the delimiter to the end of the first return
@@ -425,7 +425,7 @@ is true)</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not str, bytes, or <a href="#id11"><span class="problematic" id="id12">np.str_</span></a>, if
+<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not byte or str_scalars, if
 times is not int64, or if includeDelimiter, keepPartial, or
 fromRight is not bool</p></li>
 <li><p><strong>ValueError</strong> – Raised if times is &lt; 1</p></li>
@@ -453,14 +453,14 @@ fromRight is not bool</p></li>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.rpeel">
-<code class="sig-name descname"><span class="pre">rpeel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">np.int64</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeDelimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepPartial</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arkouda.strings.Strings.rpeel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rpeel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../dtypes/index.html#arkouda.dtypes.int_scalars" title="arkouda.dtypes.int_scalars"><span class="pre">arkouda.dtypes.int_scalars</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeDelimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepPartial</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arkouda.strings.Strings.rpeel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Peel off one or more delimited fields from the end of each string
 (similar to string.rpartition), returning two new arrays of strings.
 <em>Warning</em>: This function is experimental and not guaranteed to work.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>str</em><em>,</em><em>bytes</em><em>,</em><em>np.str_</em><em>]</em>) – The separator where the split will occur</p></li>
+<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>bytes</em><em>,</em><em>str_scalars</em><em>]</em>) – The separator where the split will occur</p></li>
 <li><p><strong>times</strong> (<em>Union</em><em>[</em><em>int</em><em>,</em><em>np.int64</em><em>]</em>) – The number of times the delimiter is sought, i.e. skip over
 the last (times-1) delimiters</p></li>
 <li><p><strong>includeDelimiter</strong> (<em>bool</em>) – If true, prepend the delimiter to the start of the first return
@@ -480,7 +480,7 @@ such strings are returned in the first array.</p></li>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not str, bytes, or <a href="#id13"><span class="problematic" id="id14">np.str_</span></a> or
+<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not bytes or str_scalars or
 if times is not int64</p></li>
 <li><p><strong>ValueError</strong> – Raised if times is &lt; 1</p></li>
 <li><p><strong>RuntimeError</strong> – Raised if there is a server-side error thrown</p></li>
@@ -504,7 +504,7 @@ if times is not int64</p></li>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.stick">
-<code class="sig-name descname"><span class="pre">stick</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toLeft</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a><a class="headerlink" href="#arkouda.strings.Strings.stick" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">stick</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toLeft</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a><a class="headerlink" href="#arkouda.strings.Strings.stick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Join the strings from another array onto one end of the strings
 of this array, optionally inserting a delimiter.
 <em>Warning</em>: This function is experimental and not guaranteed to work.</p>
@@ -525,7 +525,7 @@ other is joined to the right of self.</p></li>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not str, bytes, or <a href="#id15"><span class="problematic" id="id16">np.str_</span></a>
+<li><p><strong>TypeError</strong> – Raised if the delimiter parameter is not bytes or str_scalars
 or if the other parameter is not a Strings instance</p></li>
 <li><p><strong>ValueError</strong> – Raised if times is &lt; 1</p></li>
 <li><p><strong>RuntimeError</strong> – Raised if there is a server-side error thrown</p></li>
@@ -552,7 +552,7 @@ or if the other parameter is not a Strings instance</p></li>
 
 <dl class="py method">
 <dt id="arkouda.strings.Strings.lstick">
-<code class="sig-name descname"><span class="pre">lstick</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.str_</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a><a class="headerlink" href="#arkouda.strings.Strings.lstick" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">lstick</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#arkouda.strings.Strings.bytes" title="arkouda.strings.Strings.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str_scalars</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><span class="pre">arkouda.strings.Strings</span></a><a class="headerlink" href="#arkouda.strings.Strings.lstick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Join the strings from another array onto the left of the strings
 of this array, optionally inserting a delimiter.
 <em>Warning</em>: This function is experimental and not guaranteed to work.</p>
@@ -560,7 +560,7 @@ of this array, optionally inserting a delimiter.
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>other</strong> (<a class="reference internal" href="#arkouda.strings.Strings" title="arkouda.strings.Strings"><em>Strings</em></a>) – The strings to join onto self’s strings</p></li>
-<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>str</em><em>,</em><em>bytes</em><em>,</em><em>np.str_</em><em>]</em>) – String inserted between self and other</p></li>
+<li><p><strong>delimiter</strong> (<em>Union</em><em>[</em><em>bytes</em><em>,</em><em>str_scalars</em><em>]</em>) – String inserted between self and other</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -823,7 +823,7 @@ segments and values and (4) save logic is delegated to pdarray.save</p>
       &copy;2020, Michael Merrill and William Reus.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

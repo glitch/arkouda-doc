@@ -157,16 +157,16 @@ Classes
       Return repr(self).
 
 
-   .. method:: _binop(self, other: Union[(Categorical, str, np.str_)], op: Union[(str, np.str_)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: _binop(self, other: Union[(Categorical, str_scalars)], op: arkouda.dtypes.str_scalars) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested binop on this Categorical instance and returns
           the results within a pdarray object.
 
           Parameters
           ----------
-          other : Union[Categorical,str,np.str_]
-              the other object is a Categorical object of string scalar
-          op : Union[str,np.str_]
+          other : Union[Categorical,str_scalars]
+              the other object is a Categorical object or string scalar
+          op : str_scalars
               name of the binary operation to be performed
 
           Returns
@@ -184,16 +184,16 @@ Classes
               binary operation
 
 
-   .. method:: _r_binop(self, other: Union[(Categorical, str, np.str_)], op: Union[(str, np.str)]) -> arkouda.pdarrayclass.pdarray
+   .. method:: _r_binop(self, other: Union[(Categorical, str_scalars)], op: arkouda.dtypes.str_scalars) -> arkouda.pdarrayclass.pdarray
 
       Executes the requested reverse binop on this Categorical instance and
           returns the results within a pdarray object.
 
           Parameters
           ----------
-          other : Union[Categorical,str,np.str_]
+          other : Union[Categorical,str_scalars]
               the other object is a Categorical object or string scalar
-          op : Union[str,np.str_]
+          op : str_scalars
               name of the binary operation to be performed
 
           Returns
